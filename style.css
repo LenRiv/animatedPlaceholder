@@ -1,0 +1,75 @@
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;/** Reseteamos los estilos que vienen por defecto*/
+}
+
+body{
+  background-color: #e2dcdc;
+}
+
+.form {
+  width: 500px;
+  margin: auto;
+  position: relative;
+  max-width: 100%; 
+  padding: 20px;
+  margin-top: 50px;
+  box-shadow: 0 0 20px 1px rgba(0,0,0,0.2);
+}
+
+.form_title{
+  font-family: 'Nunito';
+  margin: 20px;
+  text-align: center;
+  color: rgb(62, 59, 59);
+}
+
+.form_input, .form_label, .form_submit{
+  display: block;
+  width: 100%;
+  font-size: 1rem;
+}
+
+.form_input {
+  padding: 20px;
+  margin-bottom: 45px;/** Dejamos espacio para el texto animado*/
+  background-color: rgba(233, 165, 20, 0.5);/** Rojo verde azul -alfa (transparencia)*/
+  border: none;/** Quitamos el que se añade por defecto */
+}
+.form_label{
+  padding: 15px;
+  position: absolute; /** Pierde el espacio*/
+  margin-top: -95px;/** Ponemos el texto de form_label encima */
+  z-index: -1;/** Ponemos el texto de form_label detras y añadimos transparencia al input para poder escribir los datos del formulario*/
+
+   /** DESPUES de .form_input: focus + .form_label */
+  transition: all 0.2s;/** Añadimos transition por el cambio de propiedad a -150px*/
+}
+.form_submit{
+  font-family: 'Nunito';
+  color: rgb(96, 92, 92);
+  padding: 8px;
+  border: none;
+  cursor: pointer;
+  background-color: #eae3e3ad;
+}
+
+/*? Animacion */
+
+/** Utilizamos la seudo-clase FOCUS con la que se aplica la animación solo cuando hagamos click en el elemento.*/
+.form_input:focus {
+  outline: 1px solid rgba(29, 28, 28, 0.3);/** Añade un borde a cada input seleccionado */
+}
+
+/** En cada selección FOCUS, añade al siguiente elemento que en este caso caso es form_label, estas propiedades */
+.form_input:focus + .form_label {
+ margin-top: -150px;/** Subimos cada label cuando exista FOCUS y añadimos TRANSITION en form_label para suavizar el cambio de propiedad */
+ color: rgba(62, 59, 59, 0.696);
+}
+
+
+/** Esta clase se crea para la funcion de JavaScript */
+.fixed{
+  margin-top: -150px;
+}
